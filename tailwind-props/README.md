@@ -1,8 +1,15 @@
-# React + Vite
+# Tailwind + React Props
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a small project with very baics of tailwind css and react props usage
 
-Currently, two official plugins are available:
+Configured tailwind in vite app
+- [https://tailwindcss.com/docs/guides/vite]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Getting photos references from pexels web
+- [https://www.pexels.com/]
+
+Leverging DevUI tailwind card html
+- [https://www.devui.io/components/cards]
+
+Using props to bind the dynamic values for each card.
+
