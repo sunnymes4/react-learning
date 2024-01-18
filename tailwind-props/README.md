@@ -1,4 +1,4 @@
-# Tailwind + React Props
+# Tailwind + React Props + Background Changer feature
 
 This is a small project with very baics of tailwind css and react props usage
 
@@ -12,4 +12,7 @@ Leverging DevUI tailwind card html
 - [https://www.devui.io/components/cards]
 
 Using props to bind the dynamic values for each card.
+
+Created list of buttons dynamically using props and methods,
+which changes the background color of app as per the button clicked.
 
