@@ -16,8 +16,8 @@ function customElement(reactElement, container) {
 }
 
 
-// ! -- this is how react create a tree object from any html tag passed in behind the sceens
-// ! -- these are all termenology this not the exact proprties react creates
+// ! -- this is how react create a tree object from any html tag passed in behind the scenes
+// ! -- these are all terminology, this not the exact proprties react creates
 const reactElement = {
     type: 'a', // first property is tag name 
     attrs: {
