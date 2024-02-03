@@ -1,5 +1,5 @@
 import { Client, ID, Storage, Databases, Query } from "appwrite";
-import config from "../config/config";
+import config from "../config/config.js";
 
 export class BlogService {
     client = new Client();
@@ -9,7 +9,7 @@ export class BlogService {
     constructor() {
         this.client
             .setEndpoint(config.appwriteUrl)
-            .setEndpoint(config.appwriteProjectId)
+            .setProject(config.appwriteProjectId)
 
         this.storage = new Storage(this.client);
         this.databases = new Databases(this.client);
@@ -130,3 +130,6 @@ export class BlogService {
         )
     }
 }
+
+const blogService = new BlogService();
+export default blogService
