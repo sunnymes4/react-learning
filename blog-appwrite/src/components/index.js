@@ -1,10 +1,12 @@
 import Footer from "./footer/footer";
 import Header from './header/header';
-import Container from "./container/container"
-import Input from './Input'
-import Button from './Button'
-import Select from './Select'
-import PostCard from './PostCard'
+import Container from "./container/container";
+import Input from './Input';
+import Button from './Button';
+import Select from './Select';
+import PostCard from './PostCard';
+import Login from "./Login";
+import Signup from "./Signup";
 
 export {
     Footer,
@@ -13,5 +15,7 @@ export {
     Input,
     Button,
     Select,
-    PostCard
+    PostCard,
+    Login,
+    Signup
 }
