@@ -25,10 +25,9 @@ function App() {
   return !loading ? (
       <div className='h-screen'>
           <Header/>
-          <main className='h-60'>
+          <main>
             <div className='mx-auto max-h-fit h- py-6 sm:px-6 lg:px-8'>
-              TODO: <Outlet/>
-
+              <Outlet/>
             </div>
           </main>
           <Footer/>

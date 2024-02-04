@@ -6,7 +6,7 @@ import LogoutBtn from "./logoutBtn"
 import { Container } from '../index'
 
 function Header() {
-    const authStatus = useSelector((state) => state.auth);
+    const authStatus = useSelector((state) => state.auth.status);
     const navigate = useNavigate();
 
     const navItems = [
@@ -23,7 +23,7 @@ function Header() {
         {
             name: 'SignUp',
             path: '/signup',
-            active: authStatus
+            active: !authStatus
         },
         {
             name: 'All Posts',
@@ -55,7 +55,7 @@ function Header() {
                                     className="bg-gray-900 px-4 py-2 text-white rounded-md text-sm hover:bg-gray-800 active:bg-gray-900"
                                 >
                                     <button
-                                        onClick={navigate(item.path)}
+                                        onClick={() => navigate(item.path)}
                                         // className="inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full"
                                     >
                                         {item.name}

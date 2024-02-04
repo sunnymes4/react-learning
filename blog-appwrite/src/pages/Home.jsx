@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import blogService from '../../appwrite/blogConfig'
-import Container, { PostCard } from '../index'
+import { useEffect, useState } from 'react'
+import blogService from '../appwrite/blogConfig'
+import Container from '../components/container/container'
+import PostCard from '../components/PostCard'
 
 function Home() {
-    const [posts, setPosts] = useState(null)
-    const navigate = useNavigate()
+    const [posts, setPosts] = useState([])
 
     useEffect(() => {
         blogService.getAllPosts().then((posts) => {
@@ -31,8 +30,7 @@ function Home() {
             </div>
         )
     }
-
-  return (
+    return (
     <div className='w-full py-8'>
         <Container>
             <div className='flex flex-wrap'>

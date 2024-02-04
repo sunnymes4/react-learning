@@ -12,3 +12,10 @@ Learning React from scratch with real world examples
 // RULES TO DEFINE ENVIORNMENT VARIABLES AND ACCESS - VITE app rules - Read docs for other app type React_app etc..
 - all the variables should suffix as VITE_VARIABLE_NAME
 - access it as import.mata.env.VITE_VARIABLE_NAME
+
+! ----- IMPORTANT LINKS -----
+
+-https://www.tiny.cloud/docs/tinymce/latest/ -- For post editor
+-https://react-hook-form.com/get-started#Quickstart -- For React hooks form and how to use container
+-https://appwrite.io/ -- For creating your own ready to use DB and Backend
+

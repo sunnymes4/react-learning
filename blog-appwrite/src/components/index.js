@@ -9,6 +9,7 @@ import Login from "./Login";
 import Signup from "./Signup";
 import PostForm from "./PostForm";
 import RTE from "./RTE";
+import AuthLayout from "./AuthLayout";
 
 export {
     Footer,
@@ -22,4 +23,5 @@ export {
     Signup,
     PostForm,
     RTE,
+    AuthLayout
 }

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import blogService from '../../appwrite/blogConfig'
-import Container from '../container/container'
-import Button from '../index'
+import blogService from '../appwrite/blogConfig'
+import {Container, Button} from '../components/index'
 import parse from 'html-react-parser'
 
 function Post() {

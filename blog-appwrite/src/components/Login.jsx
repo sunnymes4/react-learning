@@ -5,13 +5,13 @@ import authService from '../appwrite/auth'
 import Logo from './header/logo'
 import { Button, Input } from './index'
 import { login as storeLogin } from '../store/authSlice'
-import { useForm} from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 
 function Login() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [error, setError] = useState(null);
-    const [register, handleSubmit] = useForm();
+    const {register, handleSubmit} = useForm();
 
     const login = async(data) => {
         console.log(data)

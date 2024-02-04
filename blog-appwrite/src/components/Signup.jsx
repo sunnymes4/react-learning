@@ -1,4 +1,4 @@
-import React, { useId, useState } from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { login as storeLogin } from '../store/authSlice'
@@ -9,11 +9,10 @@ import { Input, Button } from './index'
 
 
 function Signup() {
-    const id = useId()
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [error, setError] = useState(null);
-    const [register, handleSubmit] = useForm();
+    const {register, handleSubmit} = useForm();
 
     const signUp = async(data) => {
         setError('');
