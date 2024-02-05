@@ -10,7 +10,7 @@ function PostForm({post}) {
     const {register, handleSubmit, watch, control, setValue, getValues} = useForm({
         defaultValues: {
             title: post?.title || '',
-            slug: post?.slug || '',
+            slug: post?.$id || '',
             content: post?.content || '',
             status: post?.status || 'active'
         }
@@ -19,12 +19,12 @@ function PostForm({post}) {
     const navigate = useNavigate()
     const userData = useSelector((state) => state.auth.userData)
 
-    const submitPost = async ({data}) => {
+    const submitPost = async (data) => {
         if(post) {
-            const file = data?.image[0] ? await blogService.uploadFile(data?.image[0]) : null
+            const file = data.image[0] ? await blogService.uploadFile(data.image[0]) : null
 
             if(file) {
-                blogService.deleteFile(file.featuredImage);
+                blogService.deleteFile(post.featuredImage);
             }
 
             const updatePost = await blogService.updatePost(
@@ -60,9 +60,9 @@ function PostForm({post}) {
 
         if(value && typeof value === 'string') {
             return value
-            .trim()
-            .toLowerCase()
-            .replace(/^[a-zA-Z\d]+/g, '-')
+           .toLowerCase()
+           .split(' ')
+           .join('-')
         }
 
         return ''
@@ -120,7 +120,7 @@ function PostForm({post}) {
             )}
             <Select
                 options={["active", "inactive"]}
-                label="Status"
+                label="Status :"
                 className="mb-4"
                 {...register("status", { required: true })}
             />

@@ -11,7 +11,6 @@ export class AuthService {
             .setProject(config.appwriteProjectId);
 
         this.account = new Account(this.client);
-        console.log(config, config.appwriteUrl, config.appwriteProjectId);
     }
 
     async createAccount({email, username, password}){

@@ -32,7 +32,7 @@ function Header() {
         },
         {
             name: 'Add Post',
-            path: '/add-posts',
+            path: '/add-post',
             active: authStatus
         }
     ]
@@ -46,7 +46,7 @@ function Header() {
                         <Logo width='70px'/>
                     </Link>
                 </div>
-                <ul className="ml-10 flex items-baseline space-x-4">
+                <ul className="ml-10 flex items-baseline space-x-4 menu-items">
                     {
                         navItems.map((item) => 
                             item.active ? (
@@ -56,7 +56,6 @@ function Header() {
                                 >
                                     <button
                                         onClick={() => navigate(item.path)}
-                                        // className="inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full"
                                     >
                                         {item.name}
                                     </button>
