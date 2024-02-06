@@ -18,7 +18,6 @@ function PostForm({post}) {
 
     const navigate = useNavigate()
     const userData = useSelector((state) => state.auth.userData)
-
     const submitPost = async (data) => {
         if(post) {
             const file = data.image[0] ? await blogService.uploadFile(data.image[0]) : null
@@ -31,7 +30,7 @@ function PostForm({post}) {
                 post.$id,
                 {
                     ...data,
-                    featureImage: file ? file.$id : null
+                    featuredImage: file ? file.$id : null
                 }
             )
 
@@ -43,7 +42,7 @@ function PostForm({post}) {
             const file = await blogService.uploadFile(data.image[0])
 
             if(file) {
-                data.featureImage = file.$id
+                data.featuredImage = file.$id
                 const createPost = await blogService.createPost({
                     ...data,
                     userId: userData.$id

@@ -17,7 +17,7 @@ export class BlogService {
 
     // Post creation, deletion, updation, get methods
 
-    async createPost({title, slug, content, featureImage, status, userId}) {
+    async createPost({title, slug, content, featuredImage, status, userId}) {
         try {
             return await this.databases.createDocument(
                 config.appwriteDatabaseId,
@@ -27,7 +27,7 @@ export class BlogService {
                     title,
                     content,
                     status,
-                    featureImage,
+                    featuredImage,
                     userId
                 }
             )
@@ -36,7 +36,7 @@ export class BlogService {
         }
     }
 
-    async updatePost(slug, {title, content, featureImage, status}) {
+    async updatePost(slug, {title, content, featuredImage, status}) {
         try {
             return await this.databases.updateDocument(
                 config.appwriteDatabaseId,
@@ -45,7 +45,7 @@ export class BlogService {
                 {
                     title,
                     content,
-                    featureImage,
+                    featuredImage,
                     status
                 }
 
@@ -57,12 +57,11 @@ export class BlogService {
 
     async deletePost(slug) {
         try {
-            await this.databases.deleteDocument(
+            return await this.databases.deleteDocument(
                 config.appwriteDatabaseId,
                 config.appwriteCollectionId,
                 slug
             )
-            return true;
         } catch (error) {
             console.log("Blog service :: deletePost error ", error)
             return false
@@ -97,13 +96,11 @@ export class BlogService {
 
     async uploadFile(file) {
         try {
-            await this.storage.createFile(
+            return await this.storage.createFile(
                 config.appwriteBucketId,
                 ID.unique(),
                 file
             )
-
-            return true;
         } catch (error) {
             console.log("Blog service :: uploadFile error ", error)
             return false;

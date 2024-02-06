@@ -16,6 +16,8 @@ Learning React from scratch with real world examples
 ! ----- IMPORTANT LINKS -----
 
 -https://www.tiny.cloud/docs/tinymce/latest/ -- For post editor
+    ! To use TinyMCE editor you have to have apiKey and for that you have to signup and login into the TinyMCE website.
+    
 -https://react-hook-form.com/get-started#Quickstart -- For React hooks form and how to use container
 -https://appwrite.io/ -- For creating your own ready to use DB and Backend
 

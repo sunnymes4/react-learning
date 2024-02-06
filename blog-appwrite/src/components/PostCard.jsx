@@ -1,23 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import blogService from '../appwrite/blogConfig'
+import Button from './Button'
+import parse from 'html-react-parser'
 
 function PostCard({
     $id,
     featuredImage,
-    title
+    title,
+    content
 }) {
     const imgPreview = blogService.getFilePreview(featuredImage)
     return (
-        
-        <Link to={`/post/${$id}`}>
-            <div className='w-full bg-gray-200 rounded-lg p-4'>
-                <div className='w-full justify-center mb-4'>
-                    <img src={imgPreview} alt={title} className='rounded-xl'/>
-                </div>
-                <h2 className='text-xl font-bold'>{title}</h2>
+        <div className=' bg-gray-100 rounded-lg p-4 w-72 min-h-96'>
+            <div className='w-full justify-center mb-4'>
+                <img src={imgPreview} alt={title} className='rounded-lg w-full'/>
             </div>
-        </Link>
+            <h2 className='text-lg font-bold'>{title}</h2>
+            <p className='text-ellipsis'>{parse(content)}</p>
+            <Link to={`/post/${$id}`}><Button>Read More...</Button></Link>
+        </div>
     )
 }
 

@@ -2,47 +2,38 @@ import { useEffect, useState } from 'react'
 import blogService from '../appwrite/blogConfig'
 import Container from '../components/container/container'
 import PostCard from '../components/PostCard'
-import { useSelector } from 'react-redux'
+import logo from '../assets/Spinner-3.gif'
 
 function Home() {
     const [posts, setPosts] = useState([])
-    const selector = useSelector((state) => state.auth.userData)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        console.log(selector)
         blogService.getAllPosts().then((posts) => {
             if(posts) {
-                setPosts(posts)
+                setPosts(posts.documents)
+                setLoading(false)
             }
         })
     }, [])
 
 
-    return posts.length > 0 ? (
-        <div className='w-full py-8'>
-            <Container>
-                <div className='flex flex-wrap'>
-                    { posts?.map((post) => {
-                        <div key={post.$id} className='p-2 w-1/4'>
-                            <PostCard {...post}/>
-                        </div>
-                    })}
-                </div>
-            </Container>
-        </div>
-    ) : 
-    (
-        <div className="w-full py-8 mt-4 text-center">
-            <Container>
-                <div className="flex flex-wrap">
-                    <div className="p-2 w-full">
-                        <h1 className="text-2xl font-bold hover:text-gray-500">
-                            Login to read posts
-                        </h1>
+    return loading ? 
+    <div className='flex justify-center items-center'>
+        <img src={logo} alt='Loading...'/>
+        <h2 className='text-green-600 text-xl ml-2 font-bold'>Loading...</h2>
+    </div> : (
+    <div className='w-full py-8'>
+        <Container>
+            <div className='flex flex-wrap gap-2'>
+                {posts && posts.map(post => (
+                    <div key={post.$id} className='bg-gray-100 rounded-md  border border-gray-300'>
+                        <PostCard {...post}/>
                     </div>
-                </div>
-            </Container>
-        </div>
+                ))}
+            </div>
+        </Container>
+    </div>
     )
 }
 
