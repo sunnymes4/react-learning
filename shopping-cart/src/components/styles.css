@@ -1,9 +1,12 @@
 .productContainer{
+    margin-left: 25%;
+    background-color: #eeeeee;
+    overflow-y: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 20px;
-    margin-top:90px
+    margin-top: 7px!important;
 }
 
 .products {
@@ -74,4 +77,22 @@
     right: 0;
     left: auto!important;
     font-size: 12px;
+}
+
+/* Filters section */
+
+.filtersContainer {
+    position: fixed;
+    top: 82px;
+    bottom: 0;
+    left: 6%;
+    width: 22%!important;
+    background-color: #eeeeee;;
+    overflow-y: auto;
+}
+
+.homeContainer {
+    position: relative;
+    display: flex;
+    height: 100vh;
 }
