@@ -35,8 +35,8 @@ function Header() {
                     </FormControl>
                 </Navbar.Text>
                 <Nav>
-                    <Dropdown>
-                        <Dropdown.Toggle varient='success'>
+                    <Dropdown >
+                        <Dropdown.Toggle varient='warning'>
                             <LuShoppingCart/>
                             <Badge>{state.cart.length}</Badge>
                         </Dropdown.Toggle>
@@ -65,18 +65,16 @@ function Header() {
                                     <span style={{padding: '10px'}}>Cart is Empty</span>
                                 )
                             }
-
                             {
-                                    
-                                    state.cart.length > 0 ? (
-                                        <button
-                                            type="button"
-                                            class="btn-sm btn btn-primary cartBtn"
-                                            
-                                            >
-                                                <Link to="/cart">Go To Cart</Link>
-                                        </button>
-                                    ) : null
+                                state.cart.length > 0 ? (
+                                    <button
+                                        type="button"
+                                        class="btn-sm btn btn-primary cartBtn"
+                                        
+                                        >
+                                            <Link to="/cart">Go To Cart</Link>
+                                    </button>
+                                ) : null
                             }
 
                         </Dropdown.Menu>

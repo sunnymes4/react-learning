@@ -10,7 +10,7 @@ function Home() {
   return (
     <>
         <Container>
-            <Row style={{paddingTop: '75px'}} className='homeContainer'>
+            <Row className='homeContainer'>
                 <Col className='filtersContainer'>
                     <Filters/>
                 </Col>

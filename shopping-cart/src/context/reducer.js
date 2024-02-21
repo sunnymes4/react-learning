@@ -3,12 +3,29 @@ export const CartReducer = (state, action) => {
         case 'ADD_TO_CART':
             return {
                 ...state, 
-                cart: [...state.cart, {...action.payload}]
+                cart: [...state.cart, {...action.payload, qty: 1}]
             };
         case 'REMOVE_FROM_CART':
             return {
                 ...state,
                 cart: state.cart.filter(item => item.id !== action.payload.id)
+            }
+        default:
+            return state
+    }
+}
+
+export const FilterReducer = (state, action) => {
+    switch(action.type) {
+        case 'SORT_BY_ASC':
+            return {
+                ...state,
+                cart: state.cart.sort((a,b) => (a.name > b.name))
+            }
+        case 'SORT_BY_DESC':
+            return {
+                ...state,
+                cart: state.cart.sort((a,b) => (b.name > a.name))
             }
         default:
             return state

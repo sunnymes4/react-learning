@@ -47,12 +47,26 @@
 
 .topbar .dropdown-toggle span {
     margin-left: 5px;
-    font-size: 8px;
-    background: #07377f!important;
+    font-size: 9px;
+    background: #fff2ca!important;
+    color: black;
     padding: 5px;
     border-radius: 50%;
     width: 20px;
     height: 20px;
+}
+
+.topbar .dropdown-toggle {
+    background-color: orange;
+    border: none;
+}
+
+.topbar .dropdown-toggle:hover, .topbar .dropdown-toggle:active {
+    background-color: rgb(226, 154, 20);
+}
+
+.topbar > .dropdown-toggle::after {
+    display: none;
 }
 
 .topbar .dropdown-item p {
@@ -83,16 +97,31 @@
 
 .filtersContainer {
     position: fixed;
-    top: 82px;
+    top: 97px;
     bottom: 0;
     left: 6%;
     width: 22%!important;
-    background-color: #eeeeee;;
+    background-color: #212529;
     overflow-y: auto;
 }
 
 .homeContainer {
     position: relative;
-    display: flex;
     height: 100vh;
+    padding-top: 90px;
 }
+
+.filters {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+  }
+  
+  .filters > span {
+    padding-bottom: 20px;
+  }
+  
+  .title {
+    font-size: 30px;
+  }
