@@ -1,3 +1,7 @@
+*{
+    font-family: Assistant,Helvetica,Arial,sans-serif!important;;
+}
+
 .productContainer{
     margin-left: 25%;
     background-color: #eeeeee;
@@ -11,6 +15,8 @@
 
 .products {
     width:30%;
+    margin-bottom: 10px;
+    font-size: 12px;
 }
 
 .products .card-text {
@@ -121,7 +127,56 @@
   .filters > span {
     padding-bottom: 20px;
   }
+
+  /* Cart total summary */
   
-  .title {
-    font-size: 30px;
+  .list-group-item {
+    font-size: 12px;
+  }
+
+  .filters .title {
+    font-size: 24px;
+  }
+
+
+  .summary .title {
+    font-size: 12px;
+    font-family: Assistant,Helvetica,Arial,sans-serif!important;
+    font-weight: 700;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgb(203, 202, 202);
+  }
+
+  .summary, .emptyCart {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .summary p {
+    display: flex;
+    font-size: 14px;
+  }
+  .summary p span {
+    margin-left: auto;
+  }
+
+  .summary p.discount span {
+    color:green
+  }
+
+  .summary p.shipping span {
+    color: red;
+  }
+
+  .emptyCart {
+    height: 200px;
+    align-items: center;
+  }
+
+  .totalAmountPayable {
+    border-top: 1px solid #dbdbdb;
+    margin-top: 20px;
+    padding: 10px 0;
+    font-weight: 700;
   }

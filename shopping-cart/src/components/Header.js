@@ -69,7 +69,7 @@ function Header() {
                                 state.cart.length > 0 ? (
                                     <button
                                         type="button"
-                                        class="btn-sm btn btn-primary cartBtn"
+                                        className="btn-sm btn btn-primary cartBtn"
                                         
                                         >
                                             <Link to="/cart">Go To Cart</Link>
