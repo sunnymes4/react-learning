@@ -3,14 +3,13 @@
 }
 
 .productContainer{
-    margin-left: 25%;
+    margin-left: 26%;
     background-color: #eeeeee;
     overflow-y: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 20px;
-    margin-top: 7px!important;
 }
 
 .products {
@@ -114,7 +113,7 @@
 .homeContainer {
     position: relative;
     height: 100vh;
-    padding-top: 75px;
+    padding-top: 85px;
 }
 
 .card-body button {

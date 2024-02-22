@@ -15,7 +15,7 @@ import { TiDelete } from "react-icons/ti";
 
 
 function Header() {
-    const {state, dispatch} = CartState(); 
+    const {state, dispatch, filterProdState: {searchQuery}, filterProdDispatch} = CartState();
 
     return (
         <div className='topbar'>
@@ -31,6 +31,11 @@ function Header() {
                         style={{width: 500}}
                         className='m-auto'
                         placeholder='Search a Product'
+                        value = {searchQuery}
+                        onChange={(e) => filterProdDispatch({
+                            type: 'SEARCH_BY_QUERY',
+                            payload: e.target.value
+                        })}
                     >
                     </FormControl>
                 </Navbar.Text>

@@ -5,13 +5,9 @@ import {AiFillStar, AiOutlineStar} from 'react-icons/ai'
 import { CartState } from '../context/context'
 
 function Filters() {
-  const {
-          filterProdState: 
-            {sortByPrice, byStock, byFastDelivery, byRating, searchQuery},
+  const { filterProdState: {sortByPrice, byStock, byFastDelivery, byRating},
           filterProdDispatch
         } = CartState();
-
-        console.log(sortByPrice, byStock, byFastDelivery, byRating, searchQuery)
   return (
     <div className="filters">
       <span className="title">Filter Products</span>

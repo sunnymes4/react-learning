@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { CartState } from '../context/context'
 import { Container, Row, Col } from 'react-bootstrap';
 import Product from './Product';
@@ -28,6 +28,9 @@ function Home() {
             sortedProducts = sortedProducts.filter((item) => item.ratings >= byRating)
         }
 
+        if(searchQuery) {
+            sortedProducts = sortedProducts.filter((item) => item.name.toLowerCase().includes(searchQuery))
+        }
         return sortedProducts
     }
 
