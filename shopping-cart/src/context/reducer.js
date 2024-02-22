@@ -22,16 +22,33 @@ export const CartReducer = (state, action) => {
 
 export const FilterReducer = (state, action) => {
     switch(action.type) {
-        case 'SORT_BY_ASC':
+        case 'SORT_BY_PRICE':
             return {
                 ...state,
-                cart: state.cart.sort((a,b) => (a.name > b.name))
+                sortByPrice: action.payload
             }
-        case 'SORT_BY_DESC':
+        case 'SORT_BY_STOCK':
             return {
                 ...state,
-                cart: state.cart.sort((a,b) => (b.name > a.name))
+                byStock: !state.byStock
             }
+        case 'SORT_BY_FAST_DELIVERY':
+            return {
+                ...state,
+                byFastDelivery: !state.byFastDelivery
+            }
+        case 'SORT_BY_RATING':
+            return {
+                ...state,
+                byRating: action.payload
+            }
+        case 'SEARCH_BY_QUERY':
+            return {
+                ...state,
+                searchQuery: action.payload
+            }
+        case 'CLEAR_FILTERS':
+            return { sortByPrice: '', byStock: false, byFastDelivery: false, byRating: 0 }
         default:
             return state
     }

@@ -103,22 +103,26 @@
 
 .filtersContainer {
     position: fixed;
-    top: 97px;
+    top: 83px;
     bottom: 0;
     left: 6%;
     width: 22%!important;
-    background-color: #212529;
+    background-color: #f6f6f6;
     overflow-y: auto;
 }
 
 .homeContainer {
     position: relative;
     height: 100vh;
-    padding-top: 90px;
+    padding-top: 75px;
+}
+
+.card-body button {
+    margin-top: 10px
 }
 
 .filters {
-    color: #ffffff;
+    color: black;
     display: flex;
     flex-direction: column;
     margin: 10px;
@@ -126,6 +130,11 @@
   
   .filters > span {
     padding-bottom: 20px;
+    font-size: 12px;
+  }
+
+  .filters > span input {
+    border: 1px solid gray
   }
 
   /* Cart total summary */
@@ -179,4 +188,22 @@
     margin-top: 20px;
     padding: 10px 0;
     font-weight: 700;
+  }
+
+
+  /* Media Queries */
+@media (max-width: 771px) {
+  
+    .productContainer {
+      width: 58%;
+      padding: 0;
+    }
+  
+    .search {
+      display: none !important;
+    }
+  
+    .products {
+      width: 100%;
+    }
   }

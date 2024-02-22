@@ -1,12 +1,37 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { CartState } from '../context/context'
 import { Container, Row, Col } from 'react-bootstrap';
 import Product from './Product';
 import Filters from './Filters';
 
 function Home() {
-    const {state} = CartState();
-    console.log(state.products);
+    const {
+            state: {products},
+            filterProdState: {sortByPrice, byStock, byFastDelivery, byRating, searchQuery}
+        } = CartState();
+    
+    const transformProducts = () => {
+        let sortedProducts = products;
+        if(sortByPrice) {
+            sortedProducts.sort((a,b) => sortByPrice === 'highToLow' ? b.price-a.price : a.price - b.price )
+        }
+
+        if(!byStock) {
+            sortedProducts = sortedProducts.filter((item) => item.inStock)
+        }
+
+        if(byFastDelivery) {
+            sortedProducts = sortedProducts.filter((item) => item.fastDelivery)
+        }
+
+        if(byRating > 0) {
+            sortedProducts = sortedProducts.filter((item) => item.ratings >= byRating)
+        }
+
+        return sortedProducts
+    }
+
+
   return (
     <>
         <Container>
@@ -16,7 +41,7 @@ function Home() {
                 </Col>
                 <Col sm={9} className='productContainer'>
                     {
-                        state.products.map((prod) => (
+                        transformProducts().map((prod) => (
                             <Product prod={prod} key={prod.id}/>
                         ))
                     }

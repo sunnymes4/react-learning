@@ -4,8 +4,14 @@ import Button from 'react-bootstrap/Button'
 import {AiFillStar, AiOutlineStar} from 'react-icons/ai'
 import { CartState } from '../context/context'
 
-function Filters({rating}) {
-  const {state, dispatch} = CartState();
+function Filters() {
+  const {
+          filterProdState: 
+            {sortByPrice, byStock, byFastDelivery, byRating, searchQuery},
+          filterProdDispatch
+        } = CartState();
+
+        console.log(sortByPrice, byStock, byFastDelivery, byRating, searchQuery)
   return (
     <div className="filters">
       <span className="title">Filter Products</span>
@@ -13,11 +19,13 @@ function Filters({rating}) {
         <Form.Check
           inline
           name='ascDesc'
-          label="Asceending"
+          label="Ascending"
           type='radio'
-          onChange={() => {
-
-          }}
+          onChange={() => filterProdDispatch({
+            type: 'SORT_BY_PRICE',
+            payload: 'lowToHigh'
+          })}
+          checked={sortByPrice === 'lowToHigh' ? true : false}
         />
       </span>
       <span>
@@ -26,6 +34,11 @@ function Filters({rating}) {
           name='ascDesc'
           label="Descending"
           type='radio'
+          onChange={() => filterProdDispatch({
+            type: 'SORT_BY_PRICE',
+            payload: 'highToLow'
+          })}
+          checked={sortByPrice === 'highToLow' ? true : false}
         />
       </span>
       <span>
@@ -34,6 +47,12 @@ function Filters({rating}) {
           name='filter'
           label="Include Out of Stock"
           type='checkbox'
+          onChange={() => {
+            filterProdDispatch({
+              type: 'SORT_BY_STOCK',
+            })
+          }}
+          checked = {byStock}
         />
       </span>
       <span>
@@ -42,20 +61,32 @@ function Filters({rating}) {
           name='filter'
           label="Fast Delivery Only"
           type='checkbox'
+          onChange={() => {
+            filterProdDispatch({
+              type: 'SORT_BY_FAST_DELIVERY',
+            })
+          }}
+          checked = {byFastDelivery}
         />
       </span>
       <span>
         <label>Ratings : </label>
         {
           [...Array(5)].map((_, i) => (
-              <span key={i}>
-                  {rating > i ? ( <AiFillStar fontSize="15px" />) : ( <AiOutlineStar fontSize="15px" />)} 
+              <span key={i} onClick={() => filterProdDispatch({
+                type: 'SORT_BY_RATING',
+                payload: i+1
+              })}>
+                  {byRating > i ? ( <AiFillStar fontSize="15px" />) : ( <AiOutlineStar fontSize="15px" />)} 
               </span>
           ))
         }
       </span>
       <Button
         variant="warning"
+        onClick={() => filterProdDispatch({
+          type: 'CLEAR_FILTERS'
+        })}
       >
         Clear Filters
       </Button>
